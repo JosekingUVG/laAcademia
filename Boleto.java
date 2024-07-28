@@ -20,6 +20,13 @@ public class Boleto {
         this.correo = "";
         this.cantidad = 0;
     }
+    public Boleto(String nombre, float presupuesto, String correo, int cantidad) {
+        this.nombre = nombre;
+        this.presupuesto = presupuesto;
+        this.correo = correo;
+        this.cantidad = cantidad;
+    }
+    
 
 /**
  * @param nombre
