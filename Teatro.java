@@ -77,11 +77,36 @@ public class Teatro {
         // Generar el número de ticket
         String fechaActual = new SimpleDateFormat("ddMMyyyy").format(new Date());
         String numeroTicket = fechaActual + "-" + contadorTickets;
-        contadorTickets++;
+        contadorTickets+= cantidadBoletos;
 
         return "Ticket generado con éxito. Número de ticket: " + numeroTicket + ". Localidad: " + localidadAsignada + ". Cantidad de boletos: " + cantidadBoletos;
     }
 }
+
+/**
+ * 
+ * Metodo para generar los boletos
+ */
+public int getBoletosVendidos() {
+    return contadorTickets;
+}
+
+/**
+ * 
+ * @return
+ */
+public String mostrarCapacidad() {
+    StringBuilder capacidad = new StringBuilder();
+    capacidad.append("Capacidad actual de las localidades:\n");
+    capacidad.append(this.localidad1.getNombre()).append(" - Capacidad: ").append(this.localidad1.getCapacidad()).append("\n");
+    capacidad.append(this.localidad2.getNombre()).append(" - Capacidad: ").append(this.localidad2.getCapacidad()).append("\n");
+    capacidad.append(this.localidad3.getNombre()).append(" - Capacidad: ").append(this.localidad3.getCapacidad()).append("\n");
+    return capacidad.toString();
+}
+/**
+ * 
+ * @param presupuesto
+ */
 
 public void setPresupuestoBoleto(float presupuesto) {
     this.boleto.setPresupuesto(presupuesto);
