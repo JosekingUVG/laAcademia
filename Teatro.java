@@ -23,15 +23,17 @@ public class Teatro {
 
     /**
      * Método constructor
+     * Aquí cambiar las especificaciones de las localidades
+     * ignorar población, no sirve de nada
      */
     public Teatro() {
         this.fecha = LocalDate.now();
         this.contador = 0;
         this.boleto = new Boleto();
         this.localidad = new Localidad();
-        this.localidad1 = new Localidad("Localidad 1", 100, 100000, 140);
-        this.localidad2 = new Localidad("Localidad 2", 150, 150000, 450);
-        this.localidad3 = new Localidad("Localidad 3", 200, 200000,490);
+        this.localidad1 = new Localidad("Balcón 2", 100, 100000, 300);
+        this.localidad2 = new Localidad("Platea", 150, 150000, 600);
+        this.localidad3 = new Localidad("Balcón 1 VIP", 200, 200000,1800);
 
     }
    
@@ -48,6 +50,8 @@ public class Teatro {
  public String generarTicket(float presupuesto, int cantidadBoletos) {
     String localidadAsignada = "";
     boolean espacioDisponible = false;
+
+    //Comparación de precios por rangos para asignar a las localidades
 
     if (presupuesto < this.localidad1.getPrecio()) {
         localidadAsignada = "No existe localidad para este presupuesto";
